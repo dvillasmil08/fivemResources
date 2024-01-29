@@ -1,1 +1,1 @@
-# fivemResources
+# The only resources I have created/coded are under the [main] folder.
