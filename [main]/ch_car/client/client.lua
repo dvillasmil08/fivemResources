@@ -31,3 +31,29 @@ RegisterCommand('car', function (source, args)
     -- Release the model from memory
     SetModelAsNoLongerNeeded(vehicleName)
 end)
+
+RegisterCommand('cardelete', function()
+    local playerPed = PlayerPedId()
+    local vehicle = GetVehiclePedIsIn(playerPed, false)
+
+    -- If the player is not in a vehicle, get the nearest one
+    if vehicle == 0 then
+        vehicle = GetClosestVehicleToPlayer(playerPed)
+    end
+
+    if DoesEntityExist(vehicle) then
+        DeleteVehicle(vehicle)
+    else
+        TriggerEvent('chat:addMessage', {
+            args = { 'No vehicle found to delete.' }
+        })
+    end
+end)
+
+-- Function to get the closest vehicle to the player
+function GetClosestVehicleToPlayer(playerPed)
+    local pos = GetEntityCoords(playerPed)
+    local vehicle = GetClosestVehicle(pos.x, pos.y, pos.z, 10.0, 0, 70)
+
+    return vehicle
+end
