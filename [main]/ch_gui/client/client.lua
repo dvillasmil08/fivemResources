@@ -95,5 +95,20 @@ RegisterCommand('testMarker', function ()
     end )
         
 -- Subtitles
+function showSubtitle(message, duration)
+    BeginTextCommandPrint("STRING")
+    AddTextComponentSubstringPlayerName(message)
+    EndTextCommandPrint(duration, true)
+end
+
+RegisterCommand('testSubtitle', function (_,_, rawCommand)
+    showSubtitle(
+        "This is a ~y~Subtitle~s~! Hope you like it.",
+        10000
+    )
+end)
+    
+end
+
 -- Busy Spinners
 -- Text Input

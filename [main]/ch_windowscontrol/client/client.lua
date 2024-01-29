@@ -20,7 +20,7 @@ local function toggleCarWindow(windowIndex)
 end
 
 -- Registering commands for each window
-RegisterCommand('window1', function() toggleCarWindow(0) end) -- Front left window
-RegisterCommand('window2', function() toggleCarWindow(1) end) -- Front right window
-RegisterCommand('window3', function() toggleCarWindow(2) end) -- Rear left window
-RegisterCommand('window4', function() toggleCarWindow(3) end) -- Rear right window
+RegisterCommand('w1', function() toggleCarWindow(0) end) -- Front left window
+RegisterCommand('w2', function() toggleCarWindow(1) end) -- Front right window
+RegisterCommand('w3', function() toggleCarWindow(2) end) -- Rear left window
+RegisterCommand('w4', function() toggleCarWindow(3) end) -- Rear right window
