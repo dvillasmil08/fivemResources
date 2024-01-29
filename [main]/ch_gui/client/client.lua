@@ -1,9 +1,9 @@
 -- Notification
-
 function showNotification(message, color, flash, saveToBrief)
     BeginTextCommandThefeedPost("STRING")
     AddTextComponentSubstringPlayerName(message)
     ThefeedNextPostBackgroundColor(color)
+    EndTextCommandThefeedPostMessagetext(textureDict, textureName, false, iconType, sender, subject)
     EndTextCommandThefeedPostTicker(flash, saveToBrief)
     
 end
@@ -20,6 +20,10 @@ end)
 
 
 -- Advanced Notifications
+
+
+
+
 -- Alerts
 -- Markers
 -- Subtitles
