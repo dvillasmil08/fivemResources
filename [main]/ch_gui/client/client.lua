@@ -137,3 +137,31 @@ end)
 
 -- Text Input
 
+function getTextInput(title, inputLength)
+    AddTextEntry('CH_INPUT', title)
+    DisplayOnscreenKeyboard(1, "CH_INPUT", "", "", "", "", "", inputLength)
+
+    while UpdateOnscreenKeyboard() == 0 do
+        Citizen.Wait(0)        
+    end
+
+    if UpdateOnscreenKeyboard() ~= 2 then
+        local result = GetOnscreenKeyboardResult()
+
+        Citizen.Wait(0)
+
+        return result
+
+    else
+        Citizen.Wait(0)
+
+        return nil
+    end
+end
+
+RegisterCommand('testInput', function (_,_, rawCommand)
+   local result = getTextInput(rawCommand, 30)
+
+   showNotification(result, 180, false, false)
+    
+end)
