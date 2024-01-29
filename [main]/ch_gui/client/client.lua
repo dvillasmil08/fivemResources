@@ -111,4 +111,29 @@ end)
 end
 
 -- Busy Spinners
+function showBusySpinner(message)
+    BeginTextCommandBusyspinnerOn("STRING")
+    AddTextComponentSubstringPlayerName(message)
+    EndTextCommandBusyspinnerOn(4)
+end
+
+function hideBusySpinner()
+    BusyspinnerOff() 
+end
+
+RegisterCommand('testSpinner', function (_,_, rawCommand)
+    if rawCommand == 'testSpinner' then
+        hideBusySpinner()
+    else
+        showBusySpinner(rawCommand)
+    end
+end)
+    
+end
+
+end)
+
+
+
 -- Text Input
+
